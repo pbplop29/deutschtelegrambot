@@ -82,5 +82,12 @@ export function createDb({ url, authToken } = {}) {
       const { rows } = await client.execute({ sql, args: limit ? [limit] : [] });
       return rows;
     },
+
+    // rmk permanently purges a word from the known list (unlike rm, leaves no trace)
+    async purgeKnownWord(word) {
+      await ensureSchema();
+      const result = await client.execute({ sql: "DELETE FROM known_words WHERE word = ?", args: [word] });
+      return result.rowsAffected > 0;
+    },
   };
 }

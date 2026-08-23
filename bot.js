@@ -19,6 +19,12 @@ export async function handleText(db, text) {
     return words.length ? words.map((w) => `${w.word} (${w.score})`).join("\n") : "No unknown words yet.";
   }
 
+  const rmk = text.match(/^rmk\s+(.+)$/i);
+  if (rmk) {
+    const word = rmk[1].trim().toLowerCase();
+    return (await db.purgeKnownWord(word)) ? `Purged "${word}" from known list.` : `"${word}" wasn't in known list.`;
+  }
+
   const rm = text.match(/^rm\s+(.+)$/i);
   if (rm) {
     const word = rm[1].trim().toLowerCase();

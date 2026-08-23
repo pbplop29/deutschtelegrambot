@@ -47,5 +47,10 @@ assert.equal(await handleText(db, "gk"), "katze");
 assert.equal(await handleText(db, "GK"), "katze");
 assert.equal(await handleText(db, "gu"), "hallo (3)\nauf jeden fall (1)\nhaus (0)");
 
+// rmk permanently purges from the known list, with no trace left
+assert.equal(await handleText(db, "RMK Katze"), 'Purged "katze" from known list.');
+assert.deepEqual((await db.listKnownWords()).map((w) => w.word), []);
+assert.equal(await handleText(db, "rmk katze"), '"katze" wasn\'t in known list.');
+
 unlinkSync(dbPath);
 console.log("ok");
