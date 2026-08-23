@@ -7,8 +7,8 @@
     "build": "npm --prefix client ci && npm --prefix client run build",
     "start": "node index.js",
     "test": "node test.js",
-    "cf:dev": "npm run build && wrangler pages dev",
-    "cf:deploy": "npm run build && wrangler pages deploy"
+    "cf:dev": "npm run build && wrangler dev",
+    "cf:deploy": "npm run build && wrangler deploy"
   },
   "keywords": [],
   "type": "module",
