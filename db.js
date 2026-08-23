@@ -4,15 +4,9 @@ const MIN = 0;
 const MAX = 7;
 const clamp = (n) => Math.max(MIN, Math.min(MAX, n));
 
-// local Node default: a file next to this module, computed lazily since import.meta.url
-// isn't a resolvable base in the Workers runtime (which always passes an explicit url anyway).
-function localFallbackUrl() {
-  return "file:" + new URL("./data.db", import.meta.url).pathname;
-}
-
 export function createDb({ url, authToken } = {}) {
-  const resolvedUrl = url || localFallbackUrl();
-  const client = createClient(authToken ? { url: resolvedUrl, authToken } : { url: resolvedUrl });
+  if (!url) throw new Error("createDb: url is required (set TURSO_DATABASE_URL)");
+  const client = createClient(authToken ? { url, authToken } : { url });
 
   let ready;
   function ensureSchema() {

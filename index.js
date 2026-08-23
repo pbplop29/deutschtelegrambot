@@ -6,11 +6,12 @@ import { createDb } from "./db.js";
 import { startBot } from "./bot.js";
 
 const clientDist = fileURLToPath(new URL("./client/dist", import.meta.url));
+const localDbUrl = "file:" + fileURLToPath(new URL("./data.db", import.meta.url));
 
 const PORT = process.env.PORT || 3001;
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 
-const db = createDb({ url: process.env.TURSO_DATABASE_URL, authToken: process.env.TURSO_AUTH_TOKEN });
+const db = createDb({ url: process.env.TURSO_DATABASE_URL || localDbUrl, authToken: process.env.TURSO_AUTH_TOKEN });
 
 const app = express();
 app.use(cors());
