@@ -8,7 +8,20 @@ export async function sendMessage(token, chatId, text) {
   });
 }
 
+const COMMANDS_HELP = `Available commands:
+word — add it (or increase not-knowing, capped at 7)
+k word — decrease not-knowing (knows it better, floors at 0)
+rm word — move word out of the cloud, into the known list
+rmk word — permanently purge word from the known list
+gk — last 10 known words
+gu — all unknown words, strongest not-knowing first
+/commands — this message`;
+
 export async function handleText(db, text) {
+  if (/^\/commands$/i.test(text)) {
+    return COMMANDS_HELP;
+  }
+
   if (/^gk$/i.test(text)) {
     const words = await db.listKnownWords(10);
     return words.length ? words.map((w) => w.word).join("\n") : "No known words yet.";

@@ -52,5 +52,8 @@ assert.equal(await handleText(db, "RMK Katze"), 'Purged "katze" from known list.
 assert.deepEqual((await db.listKnownWords()).map((w) => w.word), []);
 assert.equal(await handleText(db, "rmk katze"), '"katze" wasn\'t in known list.');
 
+// /commands lists the available commands
+assert.match(await handleText(db, "/commands"), /rmk word/);
+
 unlinkSync(dbPath);
 console.log("ok");
