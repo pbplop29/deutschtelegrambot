@@ -1,0 +1,59 @@
+.cloud {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.5em 1em;
+  padding: 2em;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cloud-word {
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-dot {
+  position: fixed;
+  top: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #9ca3af;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1;
+}
+
+.known-list {
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4em 2em 2em;
+  list-style: none;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  color: #9ca3af;
+}
+
+.known-list li {
+  padding: 0.4em 0;
+  border-bottom: 1px solid #1f2028;
+}

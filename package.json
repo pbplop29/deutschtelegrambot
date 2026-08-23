@@ -1,0 +1,22 @@
+{
+  "name": "wordcloud-telegram-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm --prefix client run build",
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "allowScripts": {
+    "better-sqlite3@13.0.3": true
+  }
+}
