@@ -1,10 +1,14 @@
 import { createDb } from "./db.js";
 import { handleUpdate } from "./bot.js";
 
+// cached per warm isolate so repeat requests skip re-creating the client and re-checking schema
+let cachedDb;
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const db = createDb({ url: env.TURSO_DATABASE_URL, authToken: env.TURSO_AUTH_TOKEN });
+    if (!cachedDb) cachedDb = createDb({ url: env.TURSO_DATABASE_URL, authToken: env.TURSO_AUTH_TOKEN });
+    const db = cachedDb;
 
     if (request.method === "GET" && url.pathname === "/api/words") {
       return Response.json(await db.listWords());

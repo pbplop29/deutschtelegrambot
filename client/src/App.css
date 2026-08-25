@@ -18,6 +18,10 @@
   line-height: 1;
   cursor: pointer;
   user-select: none;
+  /* underline spans the whole phrase (incl. internal spaces), so a multi-word
+     entry reads as one continuous unit instead of looking like separate words */
+  border-bottom: 0.06em solid currentColor;
+  padding-bottom: 0.1em;
 }
 
 .nav-dot {

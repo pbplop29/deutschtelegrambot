@@ -15,8 +15,6 @@ export function createDb({ url, authToken } = {}) {
         "CREATE TABLE IF NOT EXISTS words (word TEXT PRIMARY KEY, score INTEGER NOT NULL DEFAULT 0)",
         "CREATE TABLE IF NOT EXISTS owner (id INTEGER PRIMARY KEY CHECK (id = 1), chat_id INTEGER NOT NULL)",
         "CREATE TABLE IF NOT EXISTS known_words (word TEXT PRIMARY KEY, known_at INTEGER NOT NULL)",
-        // clamp any pre-existing scores from the old -7..7 scale
-        "UPDATE words SET score = MAX(score, 0)",
       ]);
     }
     return ready;
