@@ -4,6 +4,11 @@ A personal German vocabulary trainer: text a word to a Telegram bot, watch it sh
 
 **Live:** [dbot.biplovpokhrel.com.np](https://dbot.biplovpokhrel.com.np)
 
+<p align="center">
+  <img src="docs/word-cloud.png" width="49%" alt="Word cloud page: unknown words sized and colored by how well they're known" />
+  <img src="docs/telegram-bot.png" width="24%" alt="Telegram bot replying to gk and gu commands" />
+</p>
+
 ## How it works
 
 ```
@@ -21,6 +26,10 @@ Telegram message ──▶ Cloudflare Worker ──▶ Turso (libSQL)
 - Click a word to mark it known-better, right-click to mark it known-worse — same effect as the bot commands, without leaving the browser.
 
 One database, read and written from both the bot and the web UI, so the two are always in sync.
+
+<p align="center">
+  <img src="docs/known-words.png" width="49%" alt="Known-words page, reached via the small dot/cross button" />
+</p>
 
 ## Stack
 
