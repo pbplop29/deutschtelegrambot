@@ -2,8 +2,6 @@
 
 A personal German vocabulary trainer: text a word to a Telegram bot, watch it show up as a color- and size-coded word in a live web word-cloud. No app to open, no forms to fill — just message the bot the moment you hit a word you don't know.
 
-**Live:** [dbot.biplovpokhrel.com.np](https://dbot.biplovpokhrel.com.np)
-
 <p align="center">
   <img src="docs/word-cloud.png" width="49%" alt="Word cloud page: unknown words sized and colored by how well they're known" />
   <img src="docs/telegram-bot.png" width="24%" alt="Telegram bot replying to gk and gu commands" />
